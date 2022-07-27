@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="jvNotify.Views.NotesPage"
+             Title="Notes:" BackgroundColor="#D7D8D7">
+  <!-- Add an item to the toolbar -->
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Add" Clicked="OnAddClicked" />
+  </ContentPage.ToolbarItems>
+
+  <!-- Display notes in a list -->
+  <StackLayout VerticalOptions="Start">
+    <CollectionView x:Name="collectionView1" Margin="3" SelectionMode="Single" SelectionChanged="OnSelectionChanged" BackgroundColor="lightblue">
+      <CollectionView.ItemsLayout>
+        <LinearItemsLayout Orientation="Vertical" ItemSpacing="1" />
+      </CollectionView.ItemsLayout>
+      <!-- Define the appearance of each item in the list -->
+      <CollectionView.ItemTemplate>
+        <DataTemplate>
+          <!--Layout children in two columns-->
+          <StackLayout BackgroundColor="#DCDFFF">
+            <Grid ColumnSpacing="2" CompressedLayout.IsHeadless="False" HorizontalOptions="Start" IsClippedToBounds="True" FlowDirection="LeftToRight" AnchorX="0.5" CascadeInputTransparent="False" Margin="10,2" Padding="0" RowSpacing="0.5" WidthRequest="-1" HeightRequest="50">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <!--<RowDefinition Height="40" />
+                <RowDefinition Height="20" />-->
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="330" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Label  Grid.Column="0"  Grid.Row="0" Text="{Binding Text}"      TextColor="darkgreen" FontSize="Small" LineBreakMode="WordWrap" Grid.RowSpan="2" Margin="0,0,10,0"    />
+            </Grid>
+          </StackLayout>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    <Label Text="    Appointments:" TextColor="#118E06" FontAttributes="Bold" FontSize="Medium" />
+    <!--Display Appointments-->
+    <CollectionView x:Name="collectionView" Margin="3" SelectionMode="Single" SelectionChanged="OnSelectionChanged" BackgroundColor="#E0EBF7">
+      <CollectionView.ItemsLayout>
+        <LinearItemsLayout Orientation="Vertical" ItemSpacing="1" SnapPointsAlignment="Start" />
+      </CollectionView.ItemsLayout>
+      <!-- Define the appearance of each item in the list -->
+      <CollectionView.ItemTemplate>
+        <DataTemplate>
+          <!--Layout children in two columns-->
+          <StackLayout BackgroundColor="#FCFED3" HorizontalOptions="Start">
+            <Grid ColumnSpacing="2" CompressedLayout.IsHeadless="False" HorizontalOptions="Start" IsClippedToBounds="True" FlowDirection="LeftToRight" AnchorX="0.5" CascadeInputTransparent="False" Margin="10,2" Padding="0" RowSpacing="0.5" WidthRequest="-1" HeightRequest="45">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Label  Grid.Column="0"  Grid.Row="0" Text="{Binding Text}" x:Name="recText"     TextColor="Blue" FontSize="Small" LineBreakMode="WordWrap" Grid.RowSpan="2"    />
+              <Label  Grid.Column="0"  Grid.Row="1" Text="{Binding StartDate, StringFormat='{0:   dddd dd MMMM yyyy HH:mm}'}" TextColor="Red"  FontSize="Small" ScaleY="1" LineBreakMode="NoWrap" />
+              <Line   Grid.Column="0"  Grid.Row="2" Stroke="Green" X1="350" StrokeThickness="2" Grid.RowSpan="1" />
+            </Grid>
+          </StackLayout>
+        </DataTemplate>
+      </CollectionView.ItemTemplate>
+    </CollectionView>
+  </StackLayout>
+</ContentPage>
