@@ -10,7 +10,7 @@ namespace jvNotify.Views
   public partial class NotesPage : ContentPage
   {
     private int notificationNumber = 0;
-
+    
     public NotesPage()
     {
       InitializeComponent();
@@ -37,7 +37,11 @@ namespace jvNotify.Views
                                       select n;
       foreach (Note result in Temp)
       {
-        if ((result.StartDate > DateTime.MinValue) && (result.StartDate < DateTime.Now))
+        if ((result.StartDate > DateTime.MinValue) && (result.StartDate < DateTime.Now))  // If greater than a week away, change backcolour
+        {
+
+        }
+          if ((result.StartDate > DateTime.MinValue) && (result.StartDate < DateTime.Now))
         {
           if (result.OnGo > 0)
           {
@@ -69,7 +73,7 @@ namespace jvNotify.Views
       // Do the Appointments screen
       List<Note> reclist = await App.Database.GetNotesAsync();
       collectionView.ItemsSource = from n in reclist
-                                   where n.StartDate > DateTime.MinValue
+                                   where n.StartDate > DateTime.MinValue && n.StartDate < DateTime.Now.AddDays(7)
                                    orderby n.StartDate ascending
                                    select n;
 
@@ -156,7 +160,7 @@ namespace jvNotify.Views
       return inDate;
     }
 
-    // Keep the same day using dates
+    // Keep the same date using dates
     private DateTime AddDate(DateTime inDate, int offSet)
     {
       if (offSet == 1) { inDate = inDate.AddDays(1); }         // Daily

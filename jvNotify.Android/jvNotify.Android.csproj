@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\jvNotify\jvNotify.csproj">
-      <Project>{D89CE5B9-9AE7-4C9C-90E8-DAD0960C64C4}</Project>
+      <Project>{5C159E61-93B3-4859-9D1F-42CAD292E74D}</Project>
       <Name>jvNotify</Name>
     </ProjectReference>
   </ItemGroup>
