@@ -90,7 +90,10 @@ namespace jvNotify.Views
 
     private void OnDateSelected(object sender, PropertyChangedEventArgs e)
     {
-      SelDate = _startDatePicker.Date;
+        if (_startDatePicker != null)
+        {
+            SelDate = _startDatePicker.Date;
+        }
     }
 
     ////////////////// The following are the Routines for Notifications ///////////////
