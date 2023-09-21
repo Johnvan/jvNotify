@@ -3,12 +3,18 @@
     x:Class="jvNotify.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:jvNotify.Views"
     xmlns:local="clr-namespace:jvNotify"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Display a bottom tab bar containing two tabs -->
+    <TabBar>
+        <ShellContent Title="Notes"
+                  Icon="icon_feed.png"
+                  ContentTemplate="{DataTemplate views:NotesPage}" />
+        <ShellContent Title="About"
+                  Icon="icon_about.png"
+                  ContentTemplate="{DataTemplate views:AboutPage}" />
+    </TabBar>
 
 </Shell>

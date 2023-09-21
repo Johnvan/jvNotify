@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jvNotify.Views.AboutPage"
+             Title="About">
+
+  <!-- Layout children in two rows -->
+  <Grid RowDefinitions="Auto,*">
+    <!--<Image Source="xamarin_logo.png"
+               BackgroundColor="{OnPlatform iOS=LightSlateGray, Android=#2196F3}"
+               VerticalOptions="Center" 
+               HeightRequest="64" />-->
+    <!-- Layout children vertically -->
+    <StackLayout Grid.Row="1"
+                     Margin="20"
+                     Spacing="20">
+      <Label FontSize="22">
+        <Label.FormattedText>
+          <FormattedString>
+            <FormattedString.Spans>
+              <Span Text="Notes" 
+                                  FontAttributes="Bold" 
+                                  FontSize="22" />
+              <Span Text=" v1.220313" />
+            </FormattedString.Spans>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+      <Label FontSize="Small" FontAttributes="Bold" HeightRequest="20">Notes:</Label>
+      <Label x:Name="readThis" FontSize="Small"  Text="Enter Message Description. For a Message don't enter any Date, On Gong, or Warning details." HeightRequest="-1" FontAttributes="Italic" TextColor="#9778AA" LineHeight="1" />
+      <Label FontSize="Small" FontAttributes="Bold">Appointments:</Label>
+      <Label x:Name="readThat" FontSize="Small" Text="For an Appointment Enter Start Date and Time, On Going means repeat every Day, Week, Fortnight etc., and Warning sets the Alert days before event. Don't forget to SAVE. Also, there are 2 Notification stting, one to Notify x Minutes before and one for y Hours before appointment." HeightRequest="100" FontAttributes="Italic" TextColor="#9778AA"/>
+    </StackLayout>
+  </Grid>
+</ContentPage>
